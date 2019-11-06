@@ -3,7 +3,13 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+  # loop through prices and keep track of current min proce and the max profit
+  max_profit_so_far = 0
+  current_min_price_so_far = 0
+  num_of_prices = 0
+  while num_of_prices < len(prices):
+    print(num_of_prices)
+    num_of_prices += 1
 
 
 if __name__ == '__main__':
