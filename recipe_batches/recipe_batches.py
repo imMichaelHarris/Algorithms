@@ -15,21 +15,18 @@ def recipe_batches(recipe, ingredients):
   print(recipe.items())
   can_make = True
   while can_make == True:
-    can_make = True
     for ingredient in recipe.items():
       # print("in", ingredient[0], "recipe", recipe[ingredient[0]])
       # print(ingredients)
       # print("ingred", ingredient[0], ingredients[ingredient[0]])
-      print(hasattr(ingredients, ingredient[0]))
-      print("ingredients", ingredients,ingredients[ingredient[0]], ingredient[0])
-      if hasattr(ingredients, ingredient[0]) and ingredients[ingredient[0]] >= recipe[ingredient[0]]:
-        print("yes", ingredients[ingredient[0]], recipe[ingredient[0]])
+      # print(hasattr(ingredients, ingredient[0]))
+      # print("ingredients", ingredients,ingredients[ingredient[0]], ingredient[0])
+      if hasattr(ingredients, ingredient[0]) or ingredient[0] in ingredients and ingredients[ingredient[0]] >= recipe[ingredient[0]]:
+        # print("yes", ingredients[ingredient[0]], recipe[ingredient[0]])
         ingredients[ingredient[0]] =  ingredients[ingredient[0]] - recipe[ingredient[0]]
       else:
-        print("No more")
         can_make = False
         return batches
-        print("Im here")
     batches += 1
     # for myingredient in ingredients.items():
     #   print(myingredient)
@@ -41,6 +38,6 @@ def recipe_batches(recipe, ingredients):
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test 
   # your implementation with different inputs
-  recipe = { 'milk': 100, 'butter': 50, 'cheese': 10 }
-  ingredients = { 'milk': 198, 'butter': 52, 'cheese': 10 }
+  recipe = { 'milk': 100, 'flour': 4, 'sugar': 10, 'butter': 5 }
+  ingredients = { 'milk': 1288, 'flour': 9, 'sugar': 95 }
   print("{batches} batches can be made from the available ingredients: {ingredients}.".format(batches=recipe_batches(recipe, ingredients), ingredients=ingredients))
